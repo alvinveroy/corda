@@ -20,6 +20,7 @@ import net.corda.nodeapi.ArtemisTcpTransport
 import net.corda.nodeapi.ConnectionDirection
 import net.corda.nodeapi.VerifierApi
 import net.corda.nodeapi.internal.ArtemisMessagingComponent.Companion.INTERNAL_PREFIX
+import net.corda.nodeapi.internal.ArtemisMessagingComponent.Companion.JOURNAL_HEADER_SIZE
 import net.corda.nodeapi.internal.ArtemisMessagingComponent.Companion.NODE_USER
 import net.corda.nodeapi.internal.ArtemisMessagingComponent.Companion.NOTIFICATIONS_ADDRESS
 import net.corda.nodeapi.internal.ArtemisMessagingComponent.Companion.P2P_PREFIX
@@ -72,7 +73,6 @@ class ArtemisMessagingServer(private val config: NodeConfiguration,
                              private val maxMessageSize: Int) : ArtemisBroker, SingletonSerializeAsToken() {
     companion object {
         private val log = contextLogger()
-        const val JOURNAL_HEADER_SIZE = 1024
     }
 
     private class InnerState {
